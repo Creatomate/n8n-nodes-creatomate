@@ -32,7 +32,7 @@
     "lint": "n8n-node lint",
     "lint:fix": "n8n-node lint --fix",
     "typecheck": "tsc --noEmit",
-    "test": "tsc && node --test test",
+    "test": "tsc && node --test",
     "prepublishOnly": "n8n-node prerelease"
   },
   "files": [
