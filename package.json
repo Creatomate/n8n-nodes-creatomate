@@ -1,0 +1,64 @@
+{
+  "name": "@creatomate/n8n-nodes-creatomate",
+  "version": "1.0.0",
+  "description": "Official n8n node for generating videos and images from your Creatomate templates.",
+  "license": "MIT",
+  "homepage": "https://creatomate.com",
+  "keywords": [
+    "n8n-community-node-package",
+    "creatomate",
+    "video",
+    "image",
+    "video-generation",
+    "media-automation"
+  ],
+  "author": {
+    "name": "Creatomate",
+    "email": "support@creatomate.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Creatomate/n8n-nodes-creatomate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Creatomate/n8n-nodes-creatomate/issues"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "build": "n8n-node build",
+    "dev": "n8n-node dev",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "tsc && node --test test",
+    "prepublishOnly": "n8n-node prerelease"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "strict": true,
+    "credentials": [
+      "dist/credentials/CreatomateApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Creatomate/Creatomate.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@n8n/node-cli": "^0.43.4",
+    "eslint": "^9.32.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

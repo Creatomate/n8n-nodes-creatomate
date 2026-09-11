@@ -1,0 +1,42 @@
+name: Publish to npm
+
+# n8n requires verified community nodes to be published from a GitHub Action with a provenance
+# statement, so releases run here and never from a local machine
+on:
+  release:
+    types: [published]
+  # Lets a failed publish be re-run without cutting another release; it publishes whatever
+  # version package.json currently declares
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          # Matches the engines floor in package.json, which follows n8n 2.x's own requirement
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      - run: npm ci
+
+      - run: npm run lint
+
+      - run: npm test
+
+      - run: npm run build
+
+      # prepublishOnly runs `n8n-node prerelease`, which refuses to publish unless RELEASE_MODE is
+      # set. That guard exists to stop an unprovenanced publish from a developer machine; this
+      # workflow is the sanctioned path, so it opts in explicitly
+      - run: npm publish --provenance --access public
+        env:
+          RELEASE_MODE: 'true'
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

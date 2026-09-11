@@ -1,0 +1,18 @@
+{
+	"node": "@creatomate/n8n-nodes-creatomate.creatomate",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Marketing", "Utility"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://creatomate.com/docs/api/reference/where-can-i-find-my-api-key"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://creatomate.com/docs/api/quick-start/introduction"
+			}
+		]
+	}
+}
