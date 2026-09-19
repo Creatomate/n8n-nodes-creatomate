@@ -2,7 +2,7 @@
 	"node": "@creatomate/n8n-nodes-creatomate.creatomate",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
-	"categories": ["Marketing", "Utility"],
+	"categories": ["Marketing & Content", "Utility"],
 	"resources": {
 		"credentialDocumentation": [
 			{
